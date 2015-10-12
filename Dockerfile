@@ -5,13 +5,10 @@
 #
 
 # Pull base image.
-FROM debian
+FROM nodejs
 
 # Install Slack Invite Request
 RUN \
-  apt-get update && \
-  apt-get install -y curl && \
-  curl -sL https://deb.nodesource.com/setup_0.12 | bash - && \
   apt-get update && \
   apt-get install -y git && \
   cd / && \
