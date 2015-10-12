@@ -5,14 +5,16 @@
 #
 
 # Pull base image.
-FROM nodejs
+FROM ubuntu:14.04
 
 # Install Slack Invite Request
 RUN \
   apt-get update && \
-  apt-get install -y git && \
+  apt-get install -y git nodejs npm && \
   cd / && \
-  git clone https://github.com/cjdell/slack-invite-request.git
+  git clone https://github.com/cjdell/slack-invite-request.git && \
+  cd /slack-invite-request && \
+  npm install
 
 # Add files.
 ADD start.bash /sir-start
