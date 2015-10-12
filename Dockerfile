@@ -5,14 +5,15 @@
 #
 
 # Pull base image.
-FROM dockerfile/nodejs
+FROM dockerfile/ubuntu
 
 # Install Slack Invite Request
 RUN \
+  curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash - && \
   apt-get update && \
-  apt-get install git && \
+  apt-get install -y git nodejs && \
   cd / && \
-  git clone git@github.com:cjdell/slack-invite-request.git
+  git clone https://github.com/cjdell/slack-invite-request.git
 
 # Add files.
 ADD start.bash /sir-start
