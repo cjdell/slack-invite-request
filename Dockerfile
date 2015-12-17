@@ -14,6 +14,7 @@ RUN \
   cd / && \
   git clone https://github.com/cjdell/slack-invite-request.git && \
   cd /slack-invite-request && \
+  git pull && \
   npm install
 
 # Add files.
